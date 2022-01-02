@@ -12,8 +12,8 @@ export const SearchResults = () => {
         <div className="container">
           <div className="movies-grid row gy-4">
             {movies.map(movie => (
-              <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <Movie key={movie.imdbID} movie={movie} />
+              <div key={movie.imdbID} className="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <Movie movie={movie} />
               </div>
             ))}
           </div>
