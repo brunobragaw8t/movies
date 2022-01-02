@@ -11,3 +11,11 @@ $primary: #ff507d;
  */
 
 @import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-icons/font/bootstrap-icons.scss';
+
+
+/**
+ * Partials
+ */
+
+@import 'partials/search';
