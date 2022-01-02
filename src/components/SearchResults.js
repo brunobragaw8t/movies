@@ -10,7 +10,7 @@ export const SearchResults = () => {
     return (
       <ContentSection>
         <div className="container">
-          <div className="movies-grid row gy-3">
+          <div className="movies-grid row gy-4">
             {movies.map(movie => (
               <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                 <Movie key={movie.imdbID} movie={movie} />

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const Movie = ({ movie }) => {
   return (
     <div className="movies-item text-center">
@@ -11,7 +13,11 @@ export const Movie = ({ movie }) => {
 
       <h6 className="mt-2">{movie.Title}</h6>
 
-      <small>{movie.Year}</small>
+      <small className="d-block mb-3">{movie.Year}</small>
+
+      <Link className="btn btn-sm btn-primary mt-auto w-100" to={`/movies/${movie.imdbID}`}>
+        View details
+      </Link>
     </div>
   )
 }

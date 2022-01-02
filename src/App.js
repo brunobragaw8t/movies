@@ -10,22 +10,32 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Search } from './components/Search';
 import { SearchResults } from './components/SearchResults';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from './components/Home';
+import { MovieDetails } from './components/MovieDetails';
+import { NotFound } from './components/NotFound';
 
 const store = createStore(rootReducer);
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <Header />
+    <BrowserRouter>
+      <Provider store={store}>
+        <div className="App">
+          <Header />
 
-        <Search />
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-        <SearchResults />
+            <Route path="/movies/:id" element={<MovieDetails />} />
 
-        <Footer />
-      </div>
-    </Provider>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+
+          <Footer />
+        </div>
+      </Provider>
+    </BrowserRouter>
   );
 }
 

@@ -1,10 +1,10 @@
-// import { Navbar } from 'bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand" href="/">Movies DB</a>
+        <Link to="/" className="navbar-brand">Movies DB</Link>
 
         <button
           className="navbar-toggler"
@@ -26,21 +26,25 @@ export const Header = () => {
           </div>
 
           <div className="offcanvas-body">
-            <ul className="navbar-nav justify-content-end flex-grow-1 me-lg-5 mb-4 mb-lg-0">
+            <ul className="navbar-nav justify-content-end flex-grow-1">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => 'nav-link ' + (isActive && 'active')}
+                >
+                  Home
+                </NavLink>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="#">Favourites</a>
+                <NavLink
+                  to="/favourites"
+                  className={({ isActive }) => 'nav-link ' + (isActive && 'active')}
+                >
+                  Favourites
+                </NavLink>
               </li>
             </ul>
-
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-
-              <button className="btn btn-outline-primary" type="submit">Search</button>
-            </form>
           </div>
         </div>
       </div>

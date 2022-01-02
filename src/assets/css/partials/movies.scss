@@ -1,3 +1,7 @@
+/**
+ * Item
+ */
+
 .movies-item {
   .image {
     width: 100%;
@@ -12,6 +16,25 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+}
+
+
+/**
+ * Grid
+ */
+
+.movies-grid {
+  [class^="col"] {
+    display: flex;
+
+    .movies-item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
