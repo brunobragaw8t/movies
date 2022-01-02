@@ -7,7 +7,7 @@ export const Movie = ({ movie }) => {
         {movie.Poster !== 'N/A' ? (
           <img src={movie.Poster} alt={movie.Title} className="img-fluid" />
         ) : (
-          <img src="img/default.jpg" alt={movie.Title} className="img-fluid" />
+          <img src="/img/default.jpg" alt={movie.Title} className="img-fluid" />
         )}
       </div>
 

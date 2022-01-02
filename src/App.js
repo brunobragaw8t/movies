@@ -8,8 +8,6 @@ import './assets/css/App.scss';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { Search } from './components/Search';
-import { SearchResults } from './components/SearchResults';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { MovieDetails } from './components/MovieDetails';
