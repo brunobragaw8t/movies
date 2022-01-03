@@ -1,10 +1,9 @@
-import { createStore } from 'redux';
-import rootReducer from './reducers';
-import { Provider } from 'react-redux';
-
 import bootstrap from 'bootstrap';
 
 import './assets/css/App.scss';
+
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -12,27 +11,33 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { MovieDetails } from './components/MovieDetails';
 import { NotFound } from './components/NotFound';
-
-const store = createStore(rootReducer);
+import { getFavourites } from './actions';
+import { Favourites } from './components/Favourites';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFavourites());
+  }, []);
+
   return (
     <BrowserRouter>
-      <Provider store={store}>
-        <div className="App">
-          <Header />
+      <div className="App">
+        <Header />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-            <Route path="/movies/:id" element={<MovieDetails />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Route path="/favourites" element={<Favourites />} />
 
-          <Footer />
-        </div>
-      </Provider>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

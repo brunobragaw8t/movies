@@ -6,3 +6,19 @@ export const storeMovies = (movies) => {
     },
   }
 }
+
+export const getFavourites = () => {
+  return {
+    type: 'GET_FAVOURITES',
+  }
+}
+
+export const toggleFavourite = (id, title) => {
+  return {
+    type: 'TOGGLE_FAVOURITE',
+    payload: {
+      id: id,
+      title: title,
+    },
+  }
+}

@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NotFound } from './NotFound';
 import { ContentSection } from './ContentSection';
+import { toggleFavourite } from '../actions';
 
 const OMDB_KEY = '4236c616';
 
@@ -9,6 +11,11 @@ export const MovieDetails = () => {
   const params = useParams();
   const [notFound, setNotFound] = useState(false);
   const [movie, setMovie] = useState(null);
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const favourites = useSelector(state => state.favourites);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&i=${params.id}&plot=full`)
@@ -16,6 +23,12 @@ export const MovieDetails = () => {
     .then(json => {
       if (json.Response === 'True') {
         setMovie(json);
+
+        favourites.forEach(favourite => {
+          if (favourite.id === json.imdbID) {
+            setIsFavourite(true);
+          }
+        });
       } else {
         setNotFound(true);
       }
@@ -24,6 +37,11 @@ export const MovieDetails = () => {
       setNotFound(true);
     });
   }, []);
+
+  const sendFavourite = (id, title) => {
+    dispatch(toggleFavourite(id, title));
+    setIsFavourite(!isFavourite);
+  }
 
   if (movie) {
     return (
@@ -52,6 +70,18 @@ export const MovieDetails = () => {
 
               <h4>Synopsys</h4>
               <p>{movie.Plot}</p>
+
+              {isFavourite ? (
+                <button className="btn btn-primary" onClick={e => sendFavourite(movie.imdbID, movie.Title)}>
+                  <i className="bi bi-heart-fill me-1"></i>
+                  Unfavourite
+                </button>
+              ) : (
+                <button className="btn btn-outline-primary" onClick={e => sendFavourite(movie.imdbID, movie.Title)}>
+                  <i className="bi bi-heart me-1"></i>
+                  Favourite
+                </button>
+              )}
             </div>
           </div>
         </div>
