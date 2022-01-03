@@ -34,10 +34,10 @@ export const Search = () => {
   }
 
   return (
-    <ContentSection>
+    <ContentSection className="search-section">
       <div className="container">
-        <div className="search-box bg-light p-5">
-          <h1 className="text-center mb-3">Search Movie</h1>
+        <div className="search-box bg-light p-5 rounded bg-dark bg-opacity-50">
+          <h1 className="text-center text-light mb-3">Search Movie</h1>
 
           <form
             className="d-flex flex-column"

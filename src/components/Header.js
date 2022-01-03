@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 export const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
         <Link to="/" className="navbar-brand">Movies DB</Link>
 
