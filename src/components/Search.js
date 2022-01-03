@@ -34,7 +34,7 @@ export const Search = () => {
   }
 
   return (
-    <ContentSection className="search-section">
+    <ContentSection className="search-section d-flex align-items-center">
       <div className="container">
         <div className="search-box bg-light p-5 rounded bg-dark bg-opacity-50">
           <h1 className="text-center text-light mb-3">Search Movie</h1>

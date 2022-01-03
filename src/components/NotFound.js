@@ -3,7 +3,7 @@ import { ContentSection } from './ContentSection';
 
 export const NotFound = () => {
   return (
-    <ContentSection className="not-found-section">
+    <ContentSection className="not-found-section d-flex align-items-center">
       <div className="container text-center">
         <div className="mb-3 text-primary display-1">404</div>
 
