@@ -23,6 +23,8 @@ export const Search = () => {
     .then(json => {
       if (json.Response === 'True') {
         dispatch(storeMovies(json.Search));
+
+        document.querySelector('#search-results').scrollIntoView();
       } else {
         dispatch(storeMovies([]));
 

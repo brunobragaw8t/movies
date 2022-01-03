@@ -1,6 +1,6 @@
-export const ContentSection = ({ children, className = '' }) => {
+export const ContentSection = ({ children, id = '', className = '' }) => {
   return (
-    <section className={`py-5 ${className}`}>
+    <section id={id} className={`py-5 ${className}`}>
       {children}
     </section>
   )

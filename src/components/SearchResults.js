@@ -8,7 +8,7 @@ export const SearchResults = () => {
 
   if (movies.length) {
     return (
-      <ContentSection>
+      <ContentSection id="search-results">
         <div className="container">
           <div className="movies-grid row gy-4">
             {movies.map(movie => (
