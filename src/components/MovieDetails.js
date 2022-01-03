@@ -19,6 +19,9 @@ export const MovieDetails = () => {
       } else {
         setNotFound(true);
       }
+    })
+    .catch(error => {
+      setNotFound(true);
     });
   }, []);
 
