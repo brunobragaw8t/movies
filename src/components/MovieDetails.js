@@ -18,7 +18,7 @@ export const MovieDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&i=${params.id}&plot=full`)
+    fetch(`https://www.omdbapi.com/?apikey=${OMDB_KEY}&i=${params.id}&plot=full`)
     .then(res => res.json())
     .then(json => {
       if (json.Response === 'True') {

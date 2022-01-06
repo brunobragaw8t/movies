@@ -8,7 +8,7 @@ Technical features:
 - Redux
 - React Router
 - Favourites (local storage)
-- [OMDb API](http://www.omdbapi.com/)
+- [OMDb API](https://www.omdbapi.com/)
 - Bootstrap, customized with Sass
 
 Demo: [Movies DB](https://bbraga-movies.netlify.app/)

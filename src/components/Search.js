@@ -18,7 +18,7 @@ export const Search = () => {
     setFormIsLoading(true);
     setNoResults(false);
 
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&type=movie&s=${text}`)
+    fetch(`https://www.omdbapi.com/?apikey=${OMDB_KEY}&type=movie&s=${text}`)
     .then(res => res.json())
     .then(json => {
       if (json.Response === 'True') {
